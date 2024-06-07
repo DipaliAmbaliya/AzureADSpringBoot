@@ -18,7 +18,7 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/api/calc", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<Result> calc(@RequestParam int left, @RequestParam int right) {
         Result rs = new Result(left, right, left+right);
         return new ResponseEntity<Result>(rs, HttpStatus.OK);
